@@ -18,6 +18,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql") // PostgreSQL-Treiber hinzugefügt
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -27,5 +28,5 @@ tasks.withType<Test> {
 }
 
 tasks.bootJar {
-    archiveFileName = "${project.name}.jar" // Setzt den Namen der JAR-Datei auf All-API.jar
+    archiveFileName = "${project.name}.jar"
 }
