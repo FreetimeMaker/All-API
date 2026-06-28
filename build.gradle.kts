@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.3.1" // Aktualisiert auf eine gültige Spring Boot Version
+    id("org.springframework.boot") version "3.4.1" // Aktualisiert auf 3.4.1
     id("io.spring.dependency-management") version "1.1.7"
 }
 
