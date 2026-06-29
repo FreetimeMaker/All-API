@@ -1,3 +1,4 @@
 {
-    "start": "java $JAVA_OPTS -jar -Dserver.port=$PORT $(ls -1 build/libs/*jar | grep -v plain)"
+  "build": "./gradlew clean build -x test -x check",
+  "start": "java $JAVA_OPTS -jar -Dserver.port=$PORT build/libs/All-API.jar"
 }
