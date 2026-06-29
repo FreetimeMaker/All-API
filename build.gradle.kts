@@ -27,6 +27,10 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+tasks.named("build") {
+    dependsOn("bootJar")
+}
+
 tasks.bootJar {
     archiveFileName = "${project.name}.jar"
 }
