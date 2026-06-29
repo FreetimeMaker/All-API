@@ -1,4 +1,16 @@
 {
-  "build": "./gradlew clean build -x test -x check",
-  "start": "java $JAVA_OPTS -jar -Dserver.port=$PORT build/libs/All-API.jar"
+  "build": {
+    "steps": [
+      "./gradlew clean build -x test -x check"
+    ]
+  },
+  "start": {
+    "command": "java",
+    "args": [
+      "$JAVA_OPTS",
+      "-jar",
+      "-Dserver.port=$PORT",
+      "build/libs/All-API.jar"
+    ]
+  }
 }
