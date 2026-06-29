@@ -1,4 +1,4 @@
-package com.freetime.allapi;
+package com.freetime.allapi.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

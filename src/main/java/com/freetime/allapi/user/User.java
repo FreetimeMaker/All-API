@@ -1,4 +1,4 @@
-package com.freetime.allapi;
+package com.freetime.allapi.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
