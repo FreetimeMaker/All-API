@@ -1,6 +1,6 @@
 package com.freetime.allapi.dualist;
 
-import com.freetime.allapi..user.User;
+import com.freetime.allapi.user.User;
 import com.freetime.allapi.user.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
