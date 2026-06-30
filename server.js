@@ -2,50 +2,62 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const session = require('express-session');
-const passport = require('passport');
 
-// Lade Umgebungsvariablen aus .env Datei
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Middleware
+// CORS
 app.use(cors({
-    origin: 'http://localhost:3000', // Ersetze dies durch die URL deines Frontends
+    origin: 'https://innovative-gratitude-production-9ac1.up.railway.app',
     credentials: true
 }));
-app.use(express.json()); // Body-Parser für JSON-Anfragen
-app.use(express.urlencoded({ extended: true })); // Body-Parser für URL-encoded Anfragen
 
-// Session-Konfiguration
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Session (wichtig!)
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'your_secret_key', // Starken Secret Key verwenden
+    secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production', // In Produktion auf true setzen
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000 // 24 Stunden
-    }
 }));
 
-// Passport initialisieren
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Importiere den Haupt-Router aus src/index.js
+// Router
 const mainRouter = require('./src');
+app.use('/api', mainRouter);
 
-// Routen verwenden
-app.use('/api', mainRouter); // Alle Routen unter /api mounten
-
-// Basis-Route
+// Root
 app.get('/', (req, res) => {
-    res.send('All-API Node.js Backend is running!');
+    res.json({
+        message: "Welcome to the All-API!",
+        version: "v1.0.0",
+        versions: {
+            v1: {
+                message: "Welcome to All-API v1!",
+                version: "v1.0.0",
+                endpoints: {
+                    weather: {
+                        forecast: "/api/v1/weather/forecast?lat={lat}&lon={lon}"
+                    },
+                    todos: {
+                        getAll: "/api/v1/todos",
+                        create: "POST /api/v1/todos",
+                        update: "PUT /api/v1/todos/{id}",
+                        delete: "DELETE /api/v1/todos/{id}"
+                    },
+                    subscribe: {
+                        getPlan: "/api/v1/subscribe/me",
+                        updatePlan: "POST /api/v1/subscribe"
+                    }
+                }
+            }
+        }
+    });
 });
 
-// Starte den Server
-app.listen(PORT, () => {
+// Start
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
 });

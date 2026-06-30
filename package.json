@@ -1,7 +1,7 @@
 {
   "name": "all-api-nodejs",
   "version": "1.0.0",
-  "description": "All-in-one API for GeoWeather and Dualist, converted to Node.js",
+  "description": "All-in-one API for GeoWeather and Dualist",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -22,10 +22,7 @@
     "express": "^4.19.2",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "cors": "^2.8.5",
-    "express-session": "^1.18.0",
-    "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0"
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
