@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         version: "v1.0.0",
         versions: {
             v1: "/api/v1"
-        }
+        },
         "v1 endpoints": {
             todos: {
                 getAll: "/api/v1/todos",
