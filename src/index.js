@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Importiere den v1 Router
-const v1Router = require('./v1');
+const v1Router = require('./api/v1');
 
 // Route für die API-Übersicht
 router.get('/', (req, res) => {
