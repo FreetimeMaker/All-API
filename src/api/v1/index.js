@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // Routen importieren
-const weatherRoutes = require('./routes/weatherRoutes');
 const todoRoutes = require('./routes/todoRoutes');
 const subscribeRoutes = require('./routes/subscribeRoutes');
 
@@ -27,7 +26,6 @@ router.get('/', (req, res) => {
 });
 
 // Routen verwenden
-router.use('/weather', weatherRoutes);
 router.use('/todos', todoRoutes);
 router.use('/subscribe', subscribeRoutes);
 
