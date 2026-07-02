@@ -12,6 +12,18 @@ router.get('/', (req, res) => {
         versions: {
             v1: "/api/v1"
         }
+        "v1 endpoints": {
+            todos: {
+                getAll: "/api/v1/todos",
+                create: "POST /api/v1/todos",
+                update: "PUT /api/v1/todos/{id}",
+                delete: "DELETE /api/v1/todos/{id}"
+            },
+            subscribe: {
+                getPlan: "/api/v1/subscribe/me",
+                updatePlan: "POST /api/v1/subscribe"
+            }
+        }
     });
 });
 

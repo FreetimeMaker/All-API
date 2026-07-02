@@ -12,9 +12,6 @@ router.get('/', (req, res) => {
         message: "Welcome to All-API v1!",
         version: "v1.0.0",
         endpoints: {
-            weather: {
-                forecast: "/api/v1/weather/forecast?lat={lat}&lon={lon}"
-            },
             todos: {
                 getAll: "/api/v1/todos",
                 create: "POST /api/v1/todos",
